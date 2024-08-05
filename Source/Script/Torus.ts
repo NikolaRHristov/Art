@@ -74,7 +74,7 @@ function createLeaf(u, v, color1, color2) {
 	return leaf;
 }
 
-const leaves = [];
+const leaves: { mesh: any; u: number; v: number; speed: number; }[] = [];
 const numLeaves = 20;
 
 // Create leaves
