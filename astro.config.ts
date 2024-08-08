@@ -2,11 +2,14 @@ export default (await import("astro/config")).defineConfig({
 	srcDir: "./Source",
 	publicDir: "./Public",
 	outDir: "./Target",
-	// TODO Place your site URL here
-	// site: "",
+	site: "http://art.nikolahristov.tech",
 	compressHTML: true,
 	prefetch: true,
 	integrations: [
+		(await import("@astrojs/solid-js")).default({
+			// @ts-ignore
+			devtools: import.meta.env.DEV,
+		}),
 		// @ts-ignore
 		import.meta.env.MODE === "production"
 			? (await import("astrojs-service-worker")).default()

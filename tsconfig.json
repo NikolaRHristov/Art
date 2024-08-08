@@ -3,6 +3,12 @@
 	"compilerOptions": {
 		"baseUrl": "./",
 		"emitDeclarationOnly": false,
+		"jsx": "preserve",
+		"jsxFactory": "createComponent",
+		"jsxFragmentFactory": "Fragment",
+		"jsxImportSource": "solid-js",
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"moduleResolution": "Bundler",
 		"noEmit": true,
 		"outDir": "Target",
 		"rootDir": ".",
