@@ -1,8 +1,10 @@
 ---
 import Layout from "@Layout/Base.astro";
-import Page from "@Function/Page/Noise.jsx";
+import Animated from "@Function/Page/Noise/Animated.jsx";
+import Static from "@Function/Page/Noise/Static.jsx";
 ---
 
 <Layout>
-	<Page client:only="solid-js" Text={"Hello"} />
+	<Animated client:only="solid-js" Text={"Animated"} Animation={1} />
+	<Static client:only="solid-js" Text={"Static"} />
 </Layout>

@@ -1,14 +1,19 @@
 import { createSignal, onMount, onCleanup } from "solid-js";
 
-export default (props: {
+export default ({
+	Text,
+	Font = 48,
+	SizeX = 800,
+	SizeY = 200,
+	Animation = 1,
+}: {
 	// biome-ignore lint/suspicious/noExplicitAny:
 	Text: any;
 	Font?: 48 | undefined;
 	SizeX?: 800 | undefined;
 	SizeY?: 200 | undefined;
+	Animation?: number;
 }) => {
-	const { Text, Font = 48, SizeX = 800, SizeY = 200 } = props;
-
 	// biome-ignore lint/suspicious/noExplicitAny:
 	let canvasRef: any;
 
@@ -24,6 +29,17 @@ export default (props: {
 		const context = canvas.getContext("2d");
 
 		let animationFrameId: number;
+
+		const noiseArrayR: number[] = [];
+		const noiseArrayG: number[] = [];
+		const noiseArrayB: number[] = [];
+
+		// Initialize noise arrays
+		for (let i = 0; i < SizeX * SizeY; i++) {
+			noiseArrayR.push(Math.random());
+			noiseArrayG.push(Math.random());
+			noiseArrayB.push(Math.random());
+		}
 
 		const render = () => {
 			context.clearRect(0, 0, SizeX, SizeY);
@@ -45,22 +61,36 @@ export default (props: {
 
 			const data = imageData.data;
 
-			// Apply noise function
+			// Apply animated colorful noise function
 			for (let i = 0; i < data.length; i += 4) {
 				if (data[i + 3] > 0) {
 					// Only color non-transparent pixels
-					data[i] = Math.random() * 255; // Red
-					data[i + 1] = Math.random() * 255; // Green
-					data[i + 2] = Math.random() * 255; // Blue
+					const noiseIndex = Math.floor(i / 4);
+					data[i] = noiseArrayR[noiseIndex] * 255; // Red
+					data[i + 1] = noiseArrayG[noiseIndex] * 255; // Green
+					data[i + 2] = noiseArrayB[noiseIndex] * 255; // Blue
 				}
 			}
 
 			// Put the modified image data back
 			context.putImageData(imageData, 0, 0);
 
+			// Update noise arrays for animation
+			for (let i = 0; i < noiseArrayR.length; i++) {
+				noiseArrayR[i] += (Math.random() - 0.5) * 0.1 * Animation;
+				noiseArrayG[i] += (Math.random() - 0.5) * 0.1 * Animation;
+				noiseArrayB[i] += (Math.random() - 0.5) * 0.1 * Animation;
+				noiseArrayR[i] = Math.max(0, Math.min(1, noiseArrayR[i]));
+				noiseArrayG[i] = Math.max(0, Math.min(1, noiseArrayG[i]));
+				noiseArrayB[i] = Math.max(0, Math.min(1, noiseArrayB[i]));
+			}
+
 			// Schedule the next frame
 			animationFrameId = requestAnimationFrame(() => {
-				setFrame((prev) => prev + 1); // Trigger a re-render
+				setFrame((prev) => prev + 1);
+
+				// Trigger a re-render
+				render();
 			});
 		};
 
