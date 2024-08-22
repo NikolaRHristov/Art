@@ -1,4 +1,4 @@
-import { createSignal, onMount, onCleanup } from "solid-js";
+import { createSignal, onCleanup, onMount } from "solid-js";
 
 export default ({
 	Text,
