@@ -1,13 +1,13 @@
-import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_BBImsahs.mjs';
+import { c as createComponent, r as renderTemplate, a as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_Co1wDJYm.mjs';
 import 'kleur/colors';
-import { $ as $$Base } from '../chunks/Base_DpYlp8eE.mjs';
+import { $ as $$Base } from '../chunks/Base_DYeB59EK.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Base", $$Base, {}, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<ul class="flex flex-1 flex-col justify-center sm:flex-row"> <li> <a href="/Noise" rel="prefetch">📄 Noise —</a> </li> <li> <a href="/Torus" rel="prefetch">📄 Torus —</a> </li> </ul> ` })}`;
-}, "/run/media/nikola/Developer/Developer/Application/NikolaRHristov/Art/Source/pages/index.astro", void 0);
+}, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/index.astro", void 0);
 
-const $$file = "/run/media/nikola/Developer/Developer/Application/NikolaRHristov/Art/Source/pages/index.astro";
+const $$file = "D:/Developer/Application/NikolaRHristov/Art/Source/pages/index.astro";
 const $$url = "";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
