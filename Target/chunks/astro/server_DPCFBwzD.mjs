@@ -161,7 +161,7 @@ function createComponent(arg1, moduleId, propagation) {
   }
 }
 
-const ASTRO_VERSION = "4.14.4";
+const ASTRO_VERSION = "4.14.5";
 
 function createAstroGlobFn() {
   const globHandler = (importMetaGlobResult) => {
@@ -1609,4 +1609,4 @@ function spreadAttributes(values = {}, _name, { class: scopedClassName } = {}) {
 }
 
 export { renderComponent as a, renderSlotToString as b, createComponent as c, renderAllHeadContent as d, createAstro as e, addAttribute as f, renderScript as g, renderSlot as h, decodeKey as i, maybeRenderHead as m, renderTemplate as r, spreadAttributes as s, unescapeHTML as u };
-//# sourceMappingURL=server_Co1wDJYm.mjs.map
+//# sourceMappingURL=server_DPCFBwzD.mjs.map

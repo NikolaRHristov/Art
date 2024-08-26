@@ -1,4 +1,4 @@
-import { c as createComponent, s as spreadAttributes, b as renderSlotToString, d as renderAllHeadContent, u as unescapeHTML, e as createAstro, r as renderTemplate, f as addAttribute, g as renderScript, a as renderComponent, m as maybeRenderHead, h as renderSlot } from './astro/server_Co1wDJYm.mjs';
+import { c as createComponent, s as spreadAttributes, b as renderSlotToString, d as renderAllHeadContent, u as unescapeHTML, e as createAstro, r as renderTemplate, f as addAttribute, g as renderScript, a as renderComponent, m as maybeRenderHead, h as renderSlot } from './astro/server_DPCFBwzD.mjs';
 import 'kleur/colors';
 /* empty css                         */
 import { renderSync, parse, walkSync, ELEMENT_NODE } from 'ultrahtml';
@@ -151,4 +151,4 @@ const $$Base = createComponent(($$result, $$props, $$slots) => {
 }, "D:/Developer/Application/NikolaRHristov/Art/Source/Layout/Base.astro", void 0);
 
 export { $$Base as $ };
-//# sourceMappingURL=Base_DYeB59EK.mjs.map
+//# sourceMappingURL=Base_A055Wvd1.mjs.map
