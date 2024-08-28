@@ -63,7 +63,7 @@
 		"zod": "3.23.8"
 	},
 	"devDependencies": {
-		"solid-js": "1.8.21"
+		"solid-js": "1.8.22"
 	},
 	"publishConfig": {
 		"access": "restricted",
