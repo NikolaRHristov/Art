@@ -1,126 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3-Part Pamphlet with Three.js</title>
-    <style>
-        body { margin: 0; background-color: white; }
-        canvas { display: block; }
-    </style>
-</head>
-<body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script>
-        // Set up the scene, camera, and renderer
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color(0xffffff);
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.shadowMap.enabled = true;
-        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-        document.body.appendChild(renderer.domElement);
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>3-Part Pamphlet with Three.js</title>
+		<style>
+			body {
+				margin: 0;
+				background-color: white;
+			}
+			canvas {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+		></script>
+		<script>
+			// Set up the scene, camera, and renderer
+			const scene = new THREE.Scene();
+			scene.background = new THREE.Color(0xffffff);
+			const camera = new THREE.PerspectiveCamera(
+				75,
+				window.innerWidth / window.innerHeight,
+				0.1,
+				1000,
+			);
+			const renderer = new THREE.WebGLRenderer({ antialias: true });
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.shadowMap.enabled = true;
+			renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+			document.body.appendChild(renderer.domElement);
 
-        // Create pamphlet parts
-        const createPamphletPart = (position, rotation) => {
-            const geometry = new THREE.BoxGeometry(2, 3, 0.1);
-            const material = new THREE.MeshPhongMaterial({ color: 0xe0e0e0 });
-            const part = new THREE.Mesh(geometry, material);
-            part.position.set(position.x, position.y, position.z);
-            part.rotation.set(rotation.x, rotation.y, rotation.z);
-            part.castShadow = true;
-            part.receiveShadow = true;
-            return part;
-        };
+			// Create pamphlet parts
+			const createPamphletPart = (position, rotation) => {
+				const geometry = new THREE.BoxGeometry(2, 3, 0.1);
+				const material = new THREE.MeshPhongMaterial({
+					color: 0xe0e0e0,
+				});
+				const part = new THREE.Mesh(geometry, material);
+				part.position.set(position.x, position.y, position.z);
+				part.rotation.set(rotation.x, rotation.y, rotation.z);
+				part.castShadow = true;
+				part.receiveShadow = true;
+				return part;
+			};
 
-        const leftPart = createPamphletPart({ x: -1.9, y: 0, z: 0 }, { x: 0, y: Math.PI / 6, z: 0 });
-        const middlePart = createPamphletPart({ x: 0, y: 0, z: 0 }, { x: 0, y: 0, z: 0 });
-        const rightPart = createPamphletPart({ x: 1.9, y: 0, z: 0 }, { x: 0, y: -Math.PI / 6, z: 0 });
+			const leftPart = createPamphletPart(
+				{ x: -1.9, y: 0, z: 0 },
+				{ x: 0, y: Math.PI / 6, z: 0 },
+			);
+			const middlePart = createPamphletPart(
+				{ x: 0, y: 0, z: 0 },
+				{ x: 0, y: 0, z: 0 },
+			);
+			const rightPart = createPamphletPart(
+				{ x: 1.9, y: 0, z: 0 },
+				{ x: 0, y: -Math.PI / 6, z: 0 },
+			);
 
-        // Add parts to the scene
-        scene.add(leftPart);
-        scene.add(middlePart);
-        scene.add(rightPart);
+			// Add parts to the scene
+			scene.add(leftPart);
+			scene.add(middlePart);
+			scene.add(rightPart);
 
-        // Add lighting
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(ambientLight);
+			// Add lighting
+			const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+			scene.add(ambientLight);
 
-        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-        directionalLight.position.set(5, 5, 5);
-        directionalLight.castShadow = true;
-        directionalLight.shadow.mapSize.width = 1024;
-        directionalLight.shadow.mapSize.height = 1024;
-        directionalLight.shadow.camera.near = 1;
-        directionalLight.shadow.camera.far = 20;
-        scene.add(directionalLight);
+			const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+			directionalLight.position.set(5, 5, 5);
+			directionalLight.castShadow = true;
+			directionalLight.shadow.mapSize.width = 1024;
+			directionalLight.shadow.mapSize.height = 1024;
+			directionalLight.shadow.camera.near = 1;
+			directionalLight.shadow.camera.far = 20;
+			scene.add(directionalLight);
 
-        // Add ground plane for shadow
-        const planeGeometry = new THREE.PlaneGeometry(10, 10);
-        const planeMaterial = new THREE.ShadowMaterial({ opacity: 0.3 });
-        const plane = new THREE.Mesh(planeGeometry, planeMaterial);
-        plane.rotation.x = -Math.PI / 2;
-        plane.position.y = -1.5;
-        plane.receiveShadow = true;
-        scene.add(plane);
+			// Add ground plane for shadow
+			const planeGeometry = new THREE.PlaneGeometry(10, 10);
+			const planeMaterial = new THREE.ShadowMaterial({ opacity: 0.3 });
+			const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+			plane.rotation.x = -Math.PI / 2;
+			plane.position.y = -1.5;
+			plane.receiveShadow = true;
+			scene.add(plane);
 
-        // Position camera
-        camera.position.set(0, 0, 5);
+			// Position camera
+			camera.position.set(0, 0, 5);
 
-        // Raycaster for detecting mouse movements
-        const raycaster = new THREE.Raycaster();
-        const mouse = new THREE.Vector2();
+			// Raycaster for detecting mouse movements
+			const raycaster = new THREE.Raycaster();
+			const mouse = new THREE.Vector2();
 
-        // Render function
-        function render() {
-            renderer.render(scene, camera);
-        }
+			// Render function
+			function render() {
+				renderer.render(scene, camera);
+			}
 
-        // Animation loop
-        function animate() {
-            requestAnimationFrame(animate);
-            render();
-        }
+			// Animation loop
+			function animate() {
+				requestAnimationFrame(animate);
+				render();
+			}
 
-        animate();
+			animate();
 
-        // Handle window resizing
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            render();
-        });
+			// Handle window resizing
+			window.addEventListener("resize", () => {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize(window.innerWidth, window.innerHeight);
+				render();
+			});
 
-        // Handle mouse movement
-        window.addEventListener('mousemove', (event) => {
-            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+			// Handle mouse movement
+			window.addEventListener("mousemove", (event) => {
+				mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+				mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
-            raycaster.setFromCamera(mouse, camera);
+				raycaster.setFromCamera(mouse, camera);
 
-            const intersects = raycaster.intersectObjects([leftPart, middlePart, rightPart]);
+				const intersects = raycaster.intersectObjects([
+					leftPart,
+					middlePart,
+					rightPart,
+				]);
 
-            if (intersects.length > 0) {
-                const intersectedObject = intersects[0].object;
+				if (intersects.length > 0) {
+					const intersectedObject = intersects[0].object;
 
-                if (intersectedObject === leftPart) {
-                    leftPart.rotation.y = Math.PI / 3;
-                } else {
-                    leftPart.rotation.y = Math.PI / 6;
-                }
+					if (intersectedObject === leftPart) {
+						leftPart.rotation.y = Math.PI / 3;
+					} else {
+						leftPart.rotation.y = Math.PI / 6;
+					}
 
-                if (intersectedObject === rightPart) {
-                    rightPart.rotation.y = -Math.PI / 3;
-                } else {
-                    rightPart.rotation.y = -Math.PI / 6;
-                }
-            } else {
-                leftPart.rotation.y = Math.PI / 6;
-                rightPart.rotation.y = -Math.PI / 6;
-            }
-        });
-    </script>
-</body>
+					if (intersectedObject === rightPart) {
+						rightPart.rotation.y = -Math.PI / 3;
+					} else {
+						rightPart.rotation.y = -Math.PI / 6;
+					}
+				} else {
+					leftPart.rotation.y = Math.PI / 6;
+					rightPart.rotation.y = -Math.PI / 6;
+				}
+			});
+		</script>
+	</body>
 </html>
