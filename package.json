@@ -56,7 +56,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.2",
-		"solid-js": "1.9.1"
+		"solid-js": "1.9.2"
 	},
 	"publishConfig": {
 		"access": "restricted",
