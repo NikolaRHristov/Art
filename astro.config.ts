@@ -7,6 +7,9 @@ export default (await import("astro/config")).defineConfig({
 	site: "http://art.nikolahristov.tech",
 	compressHTML: true,
 	prefetch: true,
+	build: {
+		concurrency: 9999
+	},
 	integrations: [
 		(await import("@astrojs/solid-js")).default({
 			// @ts-ignore
