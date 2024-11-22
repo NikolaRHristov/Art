@@ -1,15 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const scene = new THREE.Scene();
+
 	const camera = new THREE.PerspectiveCamera(
 		75,
 		window.innerWidth / window.innerHeight,
 		0.1,
 		1000,
 	);
+
 	const renderer = new THREE.WebGLRenderer({ antialias: true });
 
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.setClearColor(0xffffff, 1);
+
 	document.body.appendChild(renderer.domElement);
 
 	const light = new THREE.PointLight(0xffffff, 1, 100);
@@ -26,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		},
 		vertexShader: `
             varying vec3 vNormal;
+
             varying vec3 vViewPosition;
             
             void main() {
@@ -40,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             uniform float shininess;
             
             varying vec3 vNormal;
+
             varying vec3 vViewPosition;
             
             void main() {
@@ -60,20 +65,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const createTube = (points) => {
 		const curve = new THREE.CatmullRomCurve3(points);
+
 		const tubeGeometry = new THREE.TubeGeometry(curve, 64, 0.3, 16, false);
+
 		const tube = new THREE.Mesh(tubeGeometry, pipeMaterial);
 		scene.add(tube);
 	};
 
 	const gridSize = 10;
+
 	const spacing = 1;
 
 	// Create horizontal tubes
 	for (let i = 0; i < gridSize; i++) {
 		const points = [];
+
 		for (let j = 0; j < gridSize; j++) {
 			const x = (j - gridSize / 2) * spacing;
+
 			const y = (i - gridSize / 2) * spacing;
+
 			const z = j % 2 === 0 ? 0.3 : -0.3;
 			points.push(new THREE.Vector3(x, y, z));
 		}
@@ -83,9 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	// Create vertical tubes
 	for (let j = 0; j < gridSize; j++) {
 		const points = [];
+
 		for (let i = 0; i < gridSize; i++) {
 			const x = (j - gridSize / 2) * spacing;
+
 			const y = (i - gridSize / 2) * spacing;
+
 			const z = i % 2 === 0 ? -0.3 : 0.3;
 			points.push(new THREE.Vector3(x, y, z));
 		}
