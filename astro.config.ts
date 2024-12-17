@@ -6,7 +6,10 @@ export default (await import("astro/config")).defineConfig({
 	outDir: "./Target",
 	site: "http://art.nikolahristov.tech",
 	compressHTML: true,
-	prefetch: true,
+	prefetch: {
+		defaultStrategy: "hover",
+		prefetchAll: true,
+	},
 	server: {
 		port: 9999,
 	},
