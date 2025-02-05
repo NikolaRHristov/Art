@@ -1,11 +1,11 @@
-import { c as createComponent, r as renderTemplate, a as renderComponent, d as renderScript } from '../chunks/astro/server_DqDO_MZc.mjs';
+import { c as createComponent, r as renderTemplate, a as renderComponent, d as renderScript } from '../chunks/astro/server_CQKZP5xm.mjs';
 import 'kleur/colors';
-import { $ as $$Base } from '../chunks/Base_DIZsTHPo.mjs';
+import { $ as $$Base } from '../chunks/Base_CEEtwHo3.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Torus = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Base, {}, { "default": ($$result2) => renderTemplate` ${renderScript($$result2, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Torus.astro?astro&type=script&index=0&lang.ts")} ` })}`;
-}, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Torus.astro", void 0);
+}, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Torus.astro", undefined);
 
 const $$file = "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Torus.astro";
 const $$url = "/Torus";

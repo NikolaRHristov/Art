@@ -1,11 +1,11 @@
-import { c as createComponent, r as renderTemplate, a as renderComponent } from '../chunks/astro/server_DqDO_MZc.mjs';
+import { c as createComponent, r as renderTemplate, a as renderComponent } from '../chunks/astro/server_CQKZP5xm.mjs';
 import 'kleur/colors';
-import { $ as $$Base } from '../chunks/Base_DIZsTHPo.mjs';
+import { $ as $$Base } from '../chunks/Base_CEEtwHo3.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Noise = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Base, {}, { "default": ($$result2) => renderTemplate` ${renderComponent($$result2, "Animated", null, { "client:only": "solid-js", "Text": "Animated", "Animation": 1, "client:component-hydration": "only", "client:component-path": "@Function/Page/Noise/Animated.tsx", "client:component-export": "default" })} ${renderComponent($$result2, "Static", null, { "client:only": "solid-js", "Text": "Static", "client:component-hydration": "only", "client:component-path": "@Function/Page/Noise/Static.tsx", "client:component-export": "default" })} ` })}`;
-}, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Noise.astro", void 0);
+}, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Noise.astro", undefined);
 
 const $$file = "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Noise.astro";
 const $$url = "/Noise";

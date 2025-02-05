@@ -1,12 +1,12 @@
-import { c as createComponent, r as renderTemplate, a as renderComponent, d as renderScript } from '../chunks/astro/server_DqDO_MZc.mjs';
+import { c as createComponent, r as renderTemplate, a as renderComponent, d as renderScript } from '../chunks/astro/server_CQKZP5xm.mjs';
 import 'kleur/colors';
-import { $ as $$Base } from '../chunks/Base_DIZsTHPo.mjs';
+import { $ as $$Base } from '../chunks/Base_CEEtwHo3.mjs';
 /* empty css                                 */
 export { renderers } from '../renderers.mjs';
 
 const $$Weave = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Layout", $$Base, { "data-astro-cid-utvhmuqa": true }, { "default": ($$result2) => renderTemplate`  ${renderScript($$result2, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Weave.astro?astro&type=script&index=0&lang.ts")} ${renderScript($$result2, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Weave.astro?astro&type=script&index=1&lang.ts")} ` })}`;
-}, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Weave.astro", void 0);
+}, "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Weave.astro", undefined);
 
 const $$file = "D:/Developer/Application/NikolaRHristov/Art/Source/pages/Weave.astro";
 const $$url = "/Weave";

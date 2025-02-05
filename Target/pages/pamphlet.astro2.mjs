@@ -18,8 +18,8 @@ function render({ slots: ___SLOTS___ }) {
 		</style>
 	</head>
 	<body>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-		<script>
+		<script crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+		<script crossorigin="anonymous">
 			// Set up the scene, camera, and renderer
 			const scene = new THREE.Scene();
 			scene.background = new THREE.Color(0xffffff);

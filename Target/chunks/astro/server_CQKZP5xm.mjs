@@ -1,7 +1,7 @@
 import 'kleur/colors';
 import { clsx } from 'clsx';
 import { escape } from 'html-escaper';
-import { decodeBase64, encodeHexUpperCase, encodeBase64 } from '@oslojs/encoding';
+import { encodeHexUpperCase, encodeBase64, decodeBase64 } from '@oslojs/encoding';
 import 'cssesc';
 
 const MissingMediaQueryDirective = {
@@ -56,7 +56,7 @@ function normalizeLF(code) {
 }
 
 function codeFrame(src, loc) {
-  if (!loc || loc.line === void 0 || loc.column === void 0) {
+  if (!loc || loc.line === undefined || loc.column === undefined) {
     return "";
   }
   const lines = normalizeLF(src).split("\n").map((ln) => ln.replace(/\t/g, "  "));
@@ -155,7 +155,7 @@ function createComponent(arg1, moduleId, propagation) {
   }
 }
 
-const ASTRO_VERSION = "5.0.5";
+const ASTRO_VERSION = "5.2.3";
 const NOOP_MIDDLEWARE_HEADER = "X-Astro-Noop";
 
 function createAstroGlobFn() {
@@ -370,7 +370,7 @@ function convertToSerializedForm(value, metadata = {}, parents = /* @__PURE__ */
       if (value === -Infinity) {
         return [PROP_TYPE.Infinity, -1];
       }
-      if (value === void 0) {
+      if (value === undefined) {
         return [PROP_TYPE.Value];
       }
       return [PROP_TYPE.Value, value];
@@ -418,6 +418,8 @@ function extractDirectives(inputProps, clientDirectives) {
           extracted.hydration.componentExport.value = value;
           break;
         }
+        // This is a special prop added to prove that the client hydration method
+        // was added statically.
         case "client:component-hydration": {
           break;
         }
@@ -605,15 +607,15 @@ function getDirectiveScriptText(result, directive) {
 function getPrescripts(result, type, directive) {
   switch (type) {
     case "both":
-      return `${ISLAND_STYLES}<script>${getDirectiveScriptText(result, directive)};${process.env.NODE_ENV === "development" ? astro_island_prebuilt_dev_default : astro_island_prebuilt_default}</script>`;
+      return `${ISLAND_STYLES}<script crossorigin=\"anonymous\">${getDirectiveScriptText(result, directive)};${process.env.NODE_ENV === "development" ? astro_island_prebuilt_dev_default : astro_island_prebuilt_default}</script>`;
     case "directive":
-      return `<script>${getDirectiveScriptText(result, directive)}</script>`;
+      return `<script crossorigin=\"anonymous\">${getDirectiveScriptText(result, directive)}</script>`;
   }
   return "";
 }
 
 const voidElementNames = /^(area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)$/i;
-const htmlBooleanAttributes = /^(?:allowfullscreen|async|autofocus|autoplay|checked|controls|default|defer|disabled|disablepictureinpicture|disableremoteplayback|formnovalidate|hidden|loop|nomodule|novalidate|open|playsinline|readonly|required|reversed|scoped|seamless|selected|itemscope)$/i;
+const htmlBooleanAttributes = /^(?:allowfullscreen|async|autofocus|autoplay|checked|controls|default|defer|disabled|disablepictureinpicture|disableremoteplayback|formnovalidate|hidden|inert|loop|nomodule|novalidate|open|playsinline|readonly|required|reversed|scoped|seamless|selected|itemscope)$/i;
 const AMPERSAND_REGEX = /&/g;
 const DOUBLE_QUOTE_REGEX = /"/g;
 const STATIC_DIRECTIVES = /* @__PURE__ */ new Set(["set:html", "set:text"]);
@@ -787,7 +789,7 @@ class RenderTemplateResult {
   error;
   constructor(htmlParts, expressions) {
     this.htmlParts = htmlParts;
-    this.error = void 0;
+    this.error = undefined;
     this.expressions = expressions.map((expression) => {
       if (isPromise(expression)) {
         return Promise.resolve(expression).catch((err) => {
@@ -1031,7 +1033,7 @@ class AstroComponentInstance {
     }
   }
   async init(result) {
-    if (this.returnValue !== void 0) return this.returnValue;
+    if (this.returnValue !== undefined) return this.returnValue;
     this.returnValue = this.factory(result, this.props, this.slotValues);
     if (isPromise(this.returnValue)) {
       this.returnValue.then((resolved) => {
@@ -1124,8 +1126,12 @@ const internalProps = /* @__PURE__ */ new Set([
 function containsServerDirective(props) {
   return "server:component-directive" in props;
 }
+const SCRIPT_RE = /<\/script/giu;
+const COMMENT_RE = /<!--/gu;
+const SCRIPT_REPLACER = "<\\/script";
+const COMMENT_REPLACER = "\\u003C!--";
 function safeJsonStringify(obj) {
-  return JSON.stringify(obj).replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029").replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/\//g, "\\u002f");
+  return JSON.stringify(obj).replace(SCRIPT_RE, SCRIPT_REPLACER).replace(COMMENT_RE, COMMENT_REPLACER);
 }
 function createSearchParams(componentExport, encryptedProps, slots) {
   const params = new URLSearchParams();
@@ -1164,7 +1170,7 @@ function renderServerIsland(result, _displayName, props, slots) {
         }
       }
       const key = await result.key;
-      const propsEncrypted = await encryptString(key, JSON.stringify(props));
+      const propsEncrypted = Object.keys(props).length === 0 ? "" : await encryptString(key, JSON.stringify(props));
       const hostId = crypto.randomUUID();
       const slash = result.base.endsWith("/") ? "" : "/";
       let serverIslandUrl = `${result.base}${slash}_server-islands/${componentId}${result.trailingSlash === "always" ? "/" : ""}`;
@@ -1180,7 +1186,7 @@ function renderServerIsland(result, _displayName, props, slots) {
           `<link rel="preload" as="fetch" href="${serverIslandUrl}" crossorigin="anonymous">`
         );
       }
-      destination.write(`<script async type="module" data-island-id="${hostId}">
+      destination.write(`<script crossorigin=\"anonymous\" async type="module" data-island-id="${hostId}">
 let script = document.querySelector('script[data-island-id="${hostId}"]');
 
 ${useGETRequest ? (
@@ -1202,7 +1208,10 @@ let response = await fetch('${serverIslandUrl}', {
 `
       )}
 if (script) {
-	if(response.status === 200 && response.headers.get('content-type') === 'text/html') {
+	if(
+		response.status === 200 
+		&& response.headers.has('content-type') 
+		&& response.headers.get('content-type').split(";")[0].trim() === 'text/html') {
 		let html = await response.text();
 	
 		// Swap!
@@ -1235,7 +1244,7 @@ function guessRenderers(componentUrl) {
     case "jsx":
     case "tsx":
       return ["@astrojs/react", "@astrojs/preact", "@astrojs/solid-js", "@astrojs/vue (jsx)"];
-    case void 0:
+    case undefined:
     default:
       return [
         "@astrojs/react",
@@ -1275,7 +1284,7 @@ Did you forget to import the component or is it possible there is a typo?`
     clientDirectives
   );
   let html = "";
-  let attrs = void 0;
+  let attrs = undefined;
   if (hydration) {
     metadata.hydrate = hydration.directive;
     metadata.hydrateArgs = hydration.value;
@@ -1581,7 +1590,7 @@ async function renderComponent(result, displayName, Component, props, slots = {}
   }
 }
 function normalizeProps(props) {
-  if (props["class:list"] !== void 0) {
+  if (props["class:list"] !== undefined) {
     const value = props["class:list"];
     delete props["class:list"];
     props["class"] = clsx(props["class"], value);
@@ -1598,13 +1607,13 @@ async function renderScript(result, id) {
   const inlined = result.inlinedScripts.get(id);
   if (inlined != null) {
     if (inlined) {
-      return markHTMLString(`<script type="module">${inlined}</script>`);
+      return markHTMLString(`<script crossorigin=\"anonymous\" type="module">${inlined}</script>`);
     } else {
       return "";
     }
   }
   const resolved = await result.resolve(id);
-  return markHTMLString(`<script type="module" src="${resolved}"></script>`);
+  return markHTMLString(`<script crossorigin=\"anonymous\" type="module" src="${resolved}"></script>`);
 }
 
 "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_".split("").reduce((v, c) => (v[c.charCodeAt(0)] = c, v), []);
@@ -1628,4 +1637,4 @@ function spreadAttributes(values = {}, _name, { class: scopedClassName } = {}) {
 }
 
 export { NOOP_MIDDLEWARE_HEADER as N, renderComponent as a, renderHead as b, createComponent as c, renderScript as d, renderSlotToString as e, renderAllHeadContent as f, createAstro as g, addAttribute as h, renderSlot as i, decodeKey as j, maybeRenderHead as m, renderTemplate as r, spreadAttributes as s, unescapeHTML as u };
-//# sourceMappingURL=server_DqDO_MZc.mjs.map
+//# sourceMappingURL=server_CQKZP5xm.mjs.map
