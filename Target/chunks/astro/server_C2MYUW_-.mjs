@@ -155,7 +155,7 @@ function createComponent(arg1, moduleId, propagation) {
   }
 }
 
-const ASTRO_VERSION = "5.3.0";
+const ASTRO_VERSION = "5.4.2";
 const NOOP_MIDDLEWARE_HEADER = "X-Astro-Noop";
 
 function createAstroGlobFn() {
@@ -773,6 +773,9 @@ function renderAllHeadContent(result) {
   );
   result.styles.clear();
   const scripts = Array.from(result.scripts).filter(uniqueElements).map((script) => {
+    if (result.userAssetsBase) {
+      script.props.src = (result.base === "/" ? "" : result.base) + result.userAssetsBase + script.props.src;
+    }
     return renderElement("script", script, false);
   });
   const links = Array.from(result.links).filter(uniqueElements).map((link) => renderElement("link", link, false));
@@ -1693,7 +1696,9 @@ async function renderScript(result, id) {
     }
   }
   const resolved = await result.resolve(id);
-  return markHTMLString(`<script crossorigin=\"anonymous\" type="module" src="${resolved}"></script>`);
+  return markHTMLString(
+    `<script crossorigin=\"anonymous\" type="module" src="${result.userAssetsBase ? (result.base === "/" ? "" : result.base) + result.userAssetsBase : ""}${resolved}"></script>`
+  );
 }
 
 "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_".split("").reduce((v, c) => (v[c.charCodeAt(0)] = c, v), []);

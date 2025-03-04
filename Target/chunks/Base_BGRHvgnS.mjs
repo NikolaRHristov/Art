@@ -1,4 +1,4 @@
-import { c as createComponent, s as spreadAttributes, e as renderSlotToString, f as renderAllHeadContent, u as unescapeHTML, g as createAstro, h as addAttribute, d as renderScript, a as renderTemplate, r as renderComponent, m as maybeRenderHead, i as renderSlot } from './astro/server_CZophjH_.mjs';
+import { c as createComponent, s as spreadAttributes, e as renderSlotToString, f as renderAllHeadContent, u as unescapeHTML, g as createAstro, h as addAttribute, d as renderScript, a as renderTemplate, r as renderComponent, m as maybeRenderHead, i as renderSlot } from './astro/server_C2MYUW_-.mjs';
 import 'kleur/colors';
 /* empty css                         */
 import { renderSync, parse, walkSync, ELEMENT_NODE } from 'ultrahtml';
