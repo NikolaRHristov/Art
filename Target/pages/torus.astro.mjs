@@ -1,6 +1,6 @@
 import { c as createComponent, r as renderComponent, a as renderTemplate, d as renderScript } from '../chunks/astro/server_ClTxVl8H.mjs';
 import 'kleur/colors';
-import { $ as $$Base } from '../chunks/Base_D6EZLmJ6.mjs';
+import { $ as $$Base } from '../chunks/Base_mohS12oS.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Torus = createComponent(($$result, $$props, $$slots) => {
