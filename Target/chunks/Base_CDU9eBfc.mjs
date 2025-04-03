@@ -1,4 +1,4 @@
-import { c as createComponent, s as spreadAttributes, e as renderSlotToString, f as renderAllHeadContent, u as unescapeHTML, g as createAstro, h as addAttribute, d as renderScript, a as renderTemplate, r as renderComponent, m as maybeRenderHead, i as renderSlot } from './astro/server_ClTxVl8H.mjs';
+import { c as createComponent, s as spreadAttributes, e as renderSlotToString, f as renderAllHeadContent, u as unescapeHTML, g as createAstro, h as addAttribute, d as renderScript, a as renderTemplate, r as renderComponent, m as maybeRenderHead, i as renderSlot } from './astro/server_Ct1Le9Js.mjs';
 import 'kleur/colors';
 /* empty css                         */
 import { renderSync, parse, walkSync, ELEMENT_NODE } from 'ultrahtml';
@@ -139,15 +139,15 @@ const $$ClientRouter = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$ClientRouter;
   const { fallback = "animate" } = Astro2.props;
-  return renderTemplate`<meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback"${addAttribute(fallback, "content")}>${renderScript($$result, "D:/Developer/node_modules/.pnpm/astro@5.5.5_@types+node@22._2f82bea06ddb4da204f893804c83eb90/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts")}`;
-}, "D:/Developer/node_modules/.pnpm/astro@5.5.5_@types+node@22._2f82bea06ddb4da204f893804c83eb90/node_modules/astro/components/ClientRouter.astro", void 0);
+  return renderTemplate`<meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback"${addAttribute(fallback, "content")}>${renderScript($$result, "D:/Developer/node_modules/.pnpm/astro@5.6.0_@types+node@22._8f961bbea30b604564a53d1cb13993c0/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts")}`;
+}, "D:/Developer/node_modules/.pnpm/astro@5.6.0_@types+node@22._8f961bbea30b604564a53d1cb13993c0/node_modules/astro/components/ClientRouter.astro", void 0);
 
 const $$Astro = createAstro("http://art.nikolahristov.tech");
 const $$Base = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Base;
   const { Title = "", Description = "" } = Astro2.props;
-  return renderTemplate`<html lang="en" class="no-js" dir="ltr"> ${renderComponent($$result, "Head", Head, {}, { "default": ($$result2) => renderTemplate`${renderScript($$result2, "D:/Developer/Application/NikolaRHristov/Art/Source/Layout/Base.astro?astro&type=script&index=0&lang.ts")}<title>${Title}</title><meta charset="utf-8"><meta name="description"${addAttribute(Description, "content")}><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content=""><meta name="format-detection" content="telephone=no"><meta name="twitter:dnt" content="on"><link rel="preconnect" href="HTTPS://fonts.googleapis.com" crossorigin><link rel="preconnect" href="HTTPS://fonts.gstatic.com" crossorigin><link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">${renderSlot($$result2, $$slots["Head"])}${renderComponent($$result2, "ClientRouter", $$ClientRouter, {})}` })}${maybeRenderHead()}<body> <div class="grow"> ${renderSlot($$result, $$slots["default"])} </div> ${renderScript($$result, "D:/Developer/Application/NikolaRHristov/Art/Source/Layout/Base.astro?astro&type=script&index=1&lang.ts")} </body> </html>`;
+  return renderTemplate`<html lang="en" class="no-js" dir="ltr"> ${renderComponent($$result, "Head", Head, {}, { "default": ($$result2) => renderTemplate`${renderScript($$result2, "D:/Developer/Application/NikolaRHristov/Art/Source/Layout/Base.astro?astro&type=script&index=0&lang.ts")}<title>${Title}</title><meta charset="utf-8"><meta name="description"${addAttribute(Description, "content")}><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content=""><meta name="format-detection" content="telephone=no"><meta name="twitter:dnt" content="on"><link rel="preconnect" href="HTTPS://fonts.googleapis.com" crossorigin><link rel="preconnect" href="HTTPS://fonts.gstatic.com" crossorigin><link rel="manifest" href="/Manifest.json" crossorigin="use-credentials">${renderSlot($$result2, $$slots["Head"])}${renderComponent($$result2, "ClientRouter", $$ClientRouter, {})}` })}${maybeRenderHead()}<body> <div class="grow"> ${renderSlot($$result, $$slots["default"])} </div> ${renderScript($$result, "D:/Developer/Application/NikolaRHristov/Art/Source/Layout/Base.astro?astro&type=script&index=1&lang.ts")} </body> </html>`;
 }, "D:/Developer/Application/NikolaRHristov/Art/Source/Layout/Base.astro", void 0);
 
 export { $$Base as $ };
