@@ -1,6 +1,6 @@
 import { c as createComponent, r as renderComponent, a as renderTemplate } from '../chunks/astro/server_CNcNRhpy.mjs';
 import 'kleur/colors';
-import { $ as $$Base } from '../chunks/Base_B85tYnWQ.mjs';
+import { $ as $$Base } from '../chunks/Base_BColowlN.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Noise = createComponent(($$result, $$props, $$slots) => {

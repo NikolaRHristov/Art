@@ -139,8 +139,8 @@ const $$ClientRouter = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$ClientRouter;
   const { fallback = "animate" } = Astro2.props;
-  return renderTemplate`<meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback"${addAttribute(fallback, "content")}>${renderScript($$result, "D:/Developer/node_modules/.pnpm/astro@5.7.5_@types+node@22._f199d30c8415693eb742d23d674aef02/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts")}`;
-}, "D:/Developer/node_modules/.pnpm/astro@5.7.5_@types+node@22._f199d30c8415693eb742d23d674aef02/node_modules/astro/components/ClientRouter.astro", void 0);
+  return renderTemplate`<meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback"${addAttribute(fallback, "content")}>${renderScript($$result, "D:/Developer/node_modules/.pnpm/astro@5.7.5_@types+node@22._f18bb8d5deb0adcf49bd2fcf813187d3/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts")}`;
+}, "D:/Developer/node_modules/.pnpm/astro@5.7.5_@types+node@22._f18bb8d5deb0adcf49bd2fcf813187d3/node_modules/astro/components/ClientRouter.astro", void 0);
 
 const $$Astro = createAstro("http://art.nikolahristov.tech");
 const $$Base = createComponent(($$result, $$props, $$slots) => {
