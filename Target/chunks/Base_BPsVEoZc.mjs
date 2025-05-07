@@ -1,4 +1,4 @@
-import { c as createComponent, s as spreadAttributes, e as renderSlotToString, f as renderAllHeadContent, u as unescapeHTML, g as createAstro, h as addAttribute, d as renderScript, a as renderTemplate, r as renderComponent, m as maybeRenderHead, i as renderSlot } from './astro/server_CNcNRhpy.mjs';
+import { c as createComponent, s as spreadAttributes, e as renderSlotToString, f as renderAllHeadContent, u as unescapeHTML, g as createAstro, h as addAttribute, d as renderScript, a as renderTemplate, r as renderComponent, m as maybeRenderHead, i as renderSlot } from './astro/server_iJL0md5Q.mjs';
 import 'kleur/colors';
 /* empty css                         */
 import { renderSync, parse, walkSync, ELEMENT_NODE } from 'ultrahtml';
@@ -139,8 +139,8 @@ const $$ClientRouter = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$ClientRouter;
   const { fallback = "animate" } = Astro2.props;
-  return renderTemplate`<meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback"${addAttribute(fallback, "content")}>${renderScript($$result, "D:/Developer/node_modules/.pnpm/astro@5.7.5_@types+node@22._f18bb8d5deb0adcf49bd2fcf813187d3/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts")}`;
-}, "D:/Developer/node_modules/.pnpm/astro@5.7.5_@types+node@22._f18bb8d5deb0adcf49bd2fcf813187d3/node_modules/astro/components/ClientRouter.astro", void 0);
+  return renderTemplate`<meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback"${addAttribute(fallback, "content")}>${renderScript($$result, "D:/Developer/node_modules/.pnpm/astro@5.7.10_@types+node@22_c5cb71790e16716ffe1e5c4b012d240f/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts")}`;
+}, "D:/Developer/node_modules/.pnpm/astro@5.7.10_@types+node@22_c5cb71790e16716ffe1e5c4b012d240f/node_modules/astro/components/ClientRouter.astro", void 0);
 
 const $$Astro = createAstro("http://art.nikolahristov.tech");
 const $$Base = createComponent(($$result, $$props, $$slots) => {
