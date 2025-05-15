@@ -1,0 +1,92 @@
+{
+  "../../../node_modules/.pnpm/@astrojs+solid-js@5.0.10_@t_f59a367b3e418eb0870314cfc242ba07/node_modules/@astrojs/solid-js/dist/client.js": {
+    "file": "_astro/client.BTdiRCrP.js",
+    "name": "client",
+    "src": "../../../node_modules/.pnpm/@astrojs+solid-js@5.0.10_@t_f59a367b3e418eb0870314cfc242ba07/node_modules/@astrojs/solid-js/dist/client.js",
+    "isEntry": true,
+    "imports": [
+      "_web.BrhqY3A_.js"
+    ]
+  },
+  "../../../node_modules/.pnpm/astro@5.7.13_@types+node@22_9cf0956ea5aead8e726b7eeeec442468/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts": {
+    "file": "_astro/ClientRouter.astro_astro_type_script_index_0_lang.70AGayl5.js",
+    "name": "ClientRouter.astro_astro_type_script_index_0_lang",
+    "src": "../../../node_modules/.pnpm/astro@5.7.13_@types+node@22_9cf0956ea5aead8e726b7eeeec442468/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts",
+    "isEntry": true,
+    "imports": [
+      "_index.DSBWf7TZ.js"
+    ]
+  },
+  "../../../node_modules/.pnpm/firebase@11.7.1/node_modules/firebase/app/dist/esm/index.esm.js": {
+    "file": "_astro/index.esm.DDMuUZg5.js",
+    "name": "index.esm",
+    "src": "../../../node_modules/.pnpm/firebase@11.7.1/node_modules/firebase/app/dist/esm/index.esm.js",
+    "isDynamicEntry": true
+  },
+  "Source/Layout/Base.astro?astro&type=script&index=0&lang.ts": {
+    "file": "_astro/Base.astro_astro_type_script_index_0_lang.CxAH9SC_.js",
+    "name": "Base.astro_astro_type_script_index_0_lang",
+    "src": "Source/Layout/Base.astro?astro&type=script&index=0&lang.ts",
+    "isEntry": true,
+    "dynamicImports": [
+      "../../../node_modules/.pnpm/firebase@11.7.1/node_modules/firebase/app/dist/esm/index.esm.js"
+    ]
+  },
+  "Source/pages/Sphere.astro?astro&type=script&index=0&lang.ts": {
+    "file": "_astro/Sphere.astro_astro_type_script_index_0_lang.BkVyCHgI.js",
+    "name": "Sphere.astro_astro_type_script_index_0_lang",
+    "src": "Source/pages/Sphere.astro?astro&type=script&index=0&lang.ts",
+    "isEntry": true,
+    "imports": [
+      "_three.module.DDD8eS4I.js"
+    ]
+  },
+  "Source/pages/Torus.astro?astro&type=script&index=0&lang.ts": {
+    "file": "_astro/Torus.astro_astro_type_script_index_0_lang.Ca_FDlUd.js",
+    "name": "Torus.astro_astro_type_script_index_0_lang",
+    "src": "Source/pages/Torus.astro?astro&type=script&index=0&lang.ts",
+    "isEntry": true,
+    "imports": [
+      "_three.module.DDD8eS4I.js"
+    ]
+  },
+  "_index.DSBWf7TZ.js": {
+    "file": "_astro/index.DSBWf7TZ.js",
+    "name": "index"
+  },
+  "_three.module.DDD8eS4I.js": {
+    "file": "_astro/three.module.DDD8eS4I.js",
+    "name": "three.module"
+  },
+  "_web.BrhqY3A_.js": {
+    "file": "_astro/web.BrhqY3A_.js",
+    "name": "web"
+  },
+  "astro-entry:@Function/Page/Noise/Animated.tsx": {
+    "file": "_astro/Animated.BLs3RZfJ.js",
+    "name": "Animated",
+    "src": "astro-entry:@Function/Page/Noise/Animated.tsx",
+    "isEntry": true,
+    "imports": [
+      "_web.BrhqY3A_.js"
+    ]
+  },
+  "astro-entry:@Function/Page/Noise/Static.tsx": {
+    "file": "_astro/Static.CIq37nK_.js",
+    "name": "Static",
+    "src": "astro-entry:@Function/Page/Noise/Static.tsx",
+    "isEntry": true,
+    "imports": [
+      "_web.BrhqY3A_.js"
+    ]
+  },
+  "astro:scripts/page.js": {
+    "file": "_astro/page.CO6Oifq5.js",
+    "name": "page",
+    "src": "astro:scripts/page.js",
+    "isEntry": true,
+    "imports": [
+      "_index.DSBWf7TZ.js"
+    ]
+  }
+}
