@@ -1,21 +1,20 @@
 {
-	"name": "@website/art_nikolahristov_tech",
+	"name": "@website/art_playform_cloud",
 	"version": "0.0.1",
 	"private": true,
-	"description": "Starter 📄",
+	"description": "Art 🖼️",
 	"keywords": [
 		"astro",
-		"starter",
-		"skeleton",
+		"art",
 		"playform"
 	],
-	"homepage": "https://GitHub.Com/PlayForm/Starter#readme",
+	"homepage": "https://GitHub.Com/PlayForm/Art#readme",
 	"bugs": {
-		"url": "https://GitHub.Com/PlayForm/Starter/issues"
+		"url": "https://GitHub.Com/PlayForm/Art/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/PlayForm/Starter.git"
+		"url": "git+https://github.com/PlayForm/Art.git"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {

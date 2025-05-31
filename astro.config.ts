@@ -6,7 +6,7 @@ export default defineConfig({
 	srcDir: "./Source",
 	publicDir: "./Public",
 	outDir: "./Target",
-	site: "https://art.nikolahristov.tech",
+	site: "https://art.playform.cloud",
 	compressHTML: true,
 	prefetch: {
 		defaultStrategy: "hover",

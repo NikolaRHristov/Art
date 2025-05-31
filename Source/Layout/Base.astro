@@ -2,7 +2,6 @@
 import "@Stylesheet/Base.css";
 
 import { Head } from "astro-capo";
-import { ClientRouter } from "astro:transitions";
 
 // TODO Place your title and description here
 const { Title = "", Description = "" } = Astro.props;
@@ -50,9 +49,6 @@ interface Props {
 		</style>
 
 		<slot name="Head" />
-
-		<!-- Favicon -->
-		<ClientRouter />
 	</Head>
 	<body>
 		<div class="grow">

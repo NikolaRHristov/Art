@@ -8,15 +8,6 @@
       "_web.Lvyfsgth.js"
     ]
   },
-  "../../../../node_modules/.pnpm/astro@5.8.1_@types+node@22._4f718aec1abb334b53657d6845269313/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts": {
-    "file": "_astro/ClientRouter.astro_astro_type_script_index_0_lang.70AGayl5.js",
-    "name": "ClientRouter.astro_astro_type_script_index_0_lang",
-    "src": "../../../../node_modules/.pnpm/astro@5.8.1_@types+node@22._4f718aec1abb334b53657d6845269313/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts",
-    "isEntry": true,
-    "imports": [
-      "_index.DSBWf7TZ.js"
-    ]
-  },
   "../../../../node_modules/.pnpm/firebase@11.8.1/node_modules/firebase/app/dist/esm/index.esm.js": {
     "file": "_astro/index.esm.BHEwOI5X.js",
     "name": "index.esm",
@@ -36,7 +27,7 @@
     ]
   },
   "Source/pages/Rock.astro?astro&type=script&index=0&lang.ts": {
-    "file": "_astro/Rock.astro_astro_type_script_index_0_lang.BVeTes6o.js",
+    "file": "_astro/Rock.astro_astro_type_script_index_0_lang.bTskKn_B.js",
     "name": "Rock.astro_astro_type_script_index_0_lang",
     "src": "Source/pages/Rock.astro?astro&type=script&index=0&lang.ts",
     "isEntry": true,
@@ -72,10 +63,6 @@
       "_three.module.Y10wfi1s.js"
     ]
   },
-  "_index.DSBWf7TZ.js": {
-    "file": "_astro/index.DSBWf7TZ.js",
-    "name": "index"
-  },
   "_preload-helper.Cat91CNq.js": {
     "file": "_astro/preload-helper.Cat91CNq.js",
     "name": "preload-helper"
@@ -98,7 +85,7 @@
     ]
   },
   "astro-entry:@Function/Page/Noise/Static.tsx": {
-    "file": "_astro/Static.PhzBqijs.js",
+    "file": "_astro/Static.BzPelgPa.js",
     "name": "Static",
     "src": "astro-entry:@Function/Page/Noise/Static.tsx",
     "isEntry": true,
@@ -107,12 +94,9 @@
     ]
   },
   "astro:scripts/page.js": {
-    "file": "_astro/page.CO6Oifq5.js",
+    "file": "_astro/page.CjpOtjG6.js",
     "name": "page",
     "src": "astro:scripts/page.js",
-    "isEntry": true,
-    "imports": [
-      "_index.DSBWf7TZ.js"
-    ]
+    "isEntry": true
   }
 }

@@ -169,8 +169,6 @@ const rockContainer = document.getElementById("rock-container");
 
 const loadingIndicator = document.getElementById("loading-indicator");
 
-const seedDisplay = document.getElementById("seedDisplay");
-
 // --- Configuration Object for UI & Parameters ---
 const config = {
 	// Generation
@@ -257,7 +255,7 @@ const config = {
 	triPlanarBlendSharpness: 8.0,
 
 	albedo: {
-		useBaked: false,
+		useBaked: true,
 
 		slateColorLight: "#8c8c96",
 
@@ -354,7 +352,7 @@ const config = {
 	},
 
 	roughness: {
-		useBaked: false,
+		useBaked: true,
 
 		min: 0.3,
 
@@ -377,7 +375,7 @@ const config = {
 	},
 
 	ao: {
-		useBaked: false,
+		useBaked: true,
 
 		strength: 0.7,
 
@@ -398,7 +396,7 @@ const config = {
 	},
 
 	normalDetail: {
-		useBaked: false,
+		useBaked: true,
 
 		strength: 0.4,
 
@@ -421,7 +419,7 @@ const config = {
 	pom: {
 		enable: true,
 
-		useBakedHeight: false,
+		useBakedHeight: true,
 
 		heightScaleEffect: 0.04,
 
@@ -1321,9 +1319,6 @@ async function generateAndDisplayRock() {
 
 	currentGlobalSeed = config.seed;
 
-	if (seedDisplay)
-		seedDisplay.innerText = `Generating with Seed: ${currentGlobalSeed}`;
-
 	const gridDims = getGridDimensionsForWasm();
 
 	const scalarFieldShapeParams = getScalarFieldParamsForWasm();
@@ -1570,9 +1565,6 @@ async function generateAndDisplayRock() {
 	animateSynthesis();
 
 	if (loadingIndicator) loadingIndicator.style.display = "none";
-
-	if (seedDisplay)
-		seedDisplay.innerText = `Displayed Seed: ${currentGlobalSeed}`;
 }
 
 // --- Create Shader Uniforms (Matches GLSL and config structure) ---
@@ -1827,23 +1819,23 @@ function createShaderUniforms() {
 		uReveal_SeedOffset: { value: 0.0 },
 
 		// Baked Textures
-		uUseBakedAlbedo: { value: false },
+		uUseBakedAlbedo: { value: true },
 
 		uBakedAlbedoMap: { value: null as THREE.DataTexture | null },
 
-		uUseBakedNormal: { value: false },
+		uUseBakedNormal: { value: true },
 
 		uBakedNormalMap: { value: null as THREE.DataTexture | null },
 
-		uUseBakedRoughness: { value: false },
+		uUseBakedRoughness: { value: true },
 
 		uBakedRoughnessMap: { value: null as THREE.DataTexture | null },
 
-		uUseBakedAO: { value: false },
+		uUseBakedAO: { value: true },
 
 		uBakedAOMap: { value: null as THREE.DataTexture | null },
 
-		uUseBakedPOMHeight: { value: false },
+		uUseBakedPOMHeight: { value: true },
 
 		uBakedPOMHeightMap: { value: null as THREE.DataTexture | null },
 	};
