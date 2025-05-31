@@ -65,6 +65,7 @@ async function InitializeSceneAndApp() {
 
 	// Increased shadow frustum for long beam
 	SunLight.shadow.camera.left = -50;
+
 	SunLight.shadow.camera.right = 50;
 
 	SunLight.shadow.camera.top = 50;
@@ -106,11 +107,13 @@ async function InitializeSceneAndApp() {
 
 	// Large grid
 	const GridHelper = new THREE.GridHelper(200, 50, 0xcccccc, 0xdddddd);
+
 	GridHelper.position.y =
 		-UpdatableParams.SphereOriginalRadius *
 			UpdatableParams.SphereFlattenScaleZ -
 		// Position below the object
 		5;
+
 	Scene.add(GridHelper);
 
 	// --- Fixed Parameters (not GUI controlled for now) ---
@@ -207,6 +210,7 @@ async function InitializeSceneAndApp() {
 		for (let I = 0; I < CutterDefs.length; I++) {
 			// Direct access
 			const CutterDef = CutterDefs[I];
+
 			const QuadrantName = `BowlQuadrant_${CutterDef?.NameSuffix}`;
 
 			const CutterMeshCSG = new THREE.Mesh(
@@ -221,6 +225,7 @@ async function InitializeSceneAndApp() {
 
 			// Direct access
 			const [CoeffX, CoeffY] = CutterDef?.LocationCenterCoeff ?? [];
+
 			CutterMeshCSG.position.set(
 				(CoeffX ?? 0) * CurrentCutterCenterOffset,
 				(CoeffY ?? 0) * CurrentCutterCenterOffset,
@@ -490,6 +495,7 @@ async function InitializeSceneAndApp() {
 
 	// This will affect all beams using this material
 	BeamFolder.addColor(DarkMetalMaterial, "color").name("Beam Color");
+
 	BeamFolder.add(DarkMetalMaterial, "metalness", 0, 1, 0.01).name(
 		"Beam Metalness",
 	);
@@ -609,8 +615,10 @@ async function InitializeSceneAndApp() {
 
 	// Allow closer zoom
 	Controls.minDistance = UpdatableParams.SphereOriginalRadius * 0.1;
+
 	// Adjust max distance based on long beam
 	Controls.maxDistance = UpdatableParams.CentralBeamLength * 1.5;
+
 	Controls.target.set(0, 0, 0);
 
 	Controls.update();
