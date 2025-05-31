@@ -36,7 +36,7 @@
 		"@tailwindcss/aspect-ratio": "0.4.2",
 		"@tailwindcss/forms": "0.5.10",
 		"@tailwindcss/typography": "0.5.16",
-		"astro": "5.8.0",
+		"astro": "5.8.1",
 		"astro-capo": "0.0.1",
 		"astrojs-service-worker": "2.0.0",
 		"autoprefixer": "10.4.21",
@@ -45,7 +45,7 @@
 		"dotenv": "16.5.0",
 		"firebase": "11.8.1",
 		"lil-gui": "0.20.0",
-		"postcss": "8.5.3",
+		"postcss": "8.5.4",
 		"postcss-combine-duplicated-selectors": "10.0.3",
 		"postcss-combine-media-query": "2.0.0",
 		"postcss-import": "16.1.0",
@@ -55,7 +55,7 @@
 		"three": "0.176.0",
 		"three-csg-ts": "3.2.0",
 		"typescript": "5.8.3",
-		"zod": "3.25.30"
+		"zod": "3.25.41"
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.4",
