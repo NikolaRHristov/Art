@@ -1,5 +1,6 @@
 import GUI from "lil-gui";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 import * as WasmModuleNamespace from "../../../Public/Function/Page/Rock/ArtRock.js";
 
@@ -580,8 +581,9 @@ type PresetConfig = Omit<typeof config, "actions">;
 // --- WASM Loader ---
 async function initWasm() {
 	try {
-		// @ts-expect-error: Dynamic import from JS file, TypeScript might not fully resolve its type
-		const wasm = await import("/Public/Function/Page/Rock/ArtRock.js");
+		const wasm = await import(
+			"../../../Public/Function/Page/Rock/ArtRock.js"
+		);
 
 		await wasm.default();
 
@@ -618,6 +620,23 @@ function initThreeJS() {
 	camera.lookAt(0, 0, 0);
 
 	renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+
+	const Controls = new OrbitControls(camera, renderer.domElement);
+
+	Controls.enableDamping = true;
+
+	Controls.dampingFactor = 0.05;
+
+	Controls.screenSpacePanning = true;
+
+	Controls.target.set(0, 0, 0);
+
+	Controls.update();
+
+	console.log(
+		"WebGL Context Version:",
+		renderer.capabilities.isWebGL2 ? "2.0" : "1.0",
+	);
 
 	renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -1455,55 +1474,51 @@ async function generateAndDisplayRock() {
 	// Shader Material Setup
 	if (!rockMaterial) {
 		const [vertexShaderText, fragmentShaderText] = await Promise.all([
-			fetch("/Public/Function/Page/Rock/RockVertex.glsl").then((res) =>
+			fetch("/Function/Page/Rock/RockVertex.glsl").then((res) =>
 				res.text(),
 			),
 
-			fetch("/Public/Function/Page/Rock/RockFragment.glsl").then(
-				(res) => {
-					return res.text().then(async (mainShader) => {
-						const includeRegex = /#include\s+<([\w./]+)>/g;
+			fetch("/Function/Page/Rock/RockFragment.glsl").then((res) => {
+				return res.text().then(async (mainShader) => {
+					const includeRegex = /#include\s+<([\w./]+)>/g;
 
-						let match: RegExpExecArray | null;
+					let match: RegExpExecArray | null;
 
-						let processedShader = mainShader;
+					let processedShader = mainShader;
 
-						const includePromises = [];
+					const includePromises = [];
 
-						while (
-							(match = includeRegex.exec(mainShader)) !== null
-						) {
-							const includePath = `./shaders/${match[1]}`;
+					while ((match = includeRegex.exec(mainShader)) !== null) {
+						const includePath = `./shaders/${match[1]}`;
 
-							includePromises.push(
-								fetch(includePath)
-									.then((r) => r.text())
-									.then((includeContent) => {
-										if (match) {
-											processedShader =
-												processedShader.replace(
-													match[0],
+						includePromises.push(
+							fetch(includePath)
+								.then((r) => r.text())
+								.then((includeContent) => {
+									if (match) {
+										processedShader =
+											processedShader.replace(
+												match[0],
 
-													`\n// --- Included ${match[1]} ---\n${includeContent}\n// --- End ${match[1]} ---\n`,
-												);
-										}
-									})
-									.catch((err) =>
-										console.warn(
-											`Failed to load shader include: ${includePath}`,
+												`\n// --- Included ${match[1]} ---\n${includeContent}\n// --- End ${match[1]} ---\n`,
+											);
+									}
+								})
+								.catch((err) =>
+									console.warn(
+										`Failed to load shader include: ${includePath}`,
 
-											err,
-										),
+										err,
 									),
-							);
-						}
+								),
+						);
+					}
 
-						await Promise.all(includePromises);
+					await Promise.all(includePromises);
 
-						return processedShader;
-					});
-				},
-			),
+					return processedShader;
+				});
+			}),
 		]);
 
 		rockMaterial = new THREE.ShaderMaterial({
@@ -1518,6 +1533,12 @@ async function generateAndDisplayRock() {
 			],
 
 			lights: true,
+
+			defines: {
+				// 'HAS_VERTEX_TANGENTS': true, // <-- Ensure this is commented out or absent
+				// Add any other defines your shaders might use, e.g.
+				"USE_POM": config.pom.enable, // if you want to conditionally compile POM code
+			},
 		});
 	}
 

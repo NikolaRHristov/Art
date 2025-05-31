@@ -36,49 +36,52 @@
     ]
   },
   "Source/pages/Rock.astro?astro&type=script&index=0&lang.ts": {
-    "file": "_astro/Rock.astro_astro_type_script_index_0_lang.DoExWI6w.js",
+    "file": "_astro/Rock.astro_astro_type_script_index_0_lang.CBPKNnE3.js",
     "name": "Rock.astro_astro_type_script_index_0_lang",
     "src": "Source/pages/Rock.astro?astro&type=script&index=0&lang.ts",
     "isEntry": true,
     "imports": [
       "_preload-helper.Cat91CNq.js",
-      "_lil-gui.esm.BVaIxMJZ.js",
-      "_three.module.-dzcdP-7.js"
+      "_OrbitControls.BzMIHh-e.js",
+      "_three.module.Dk-PdjTq.js"
     ]
   },
   "Source/pages/Sphere.astro?astro&type=script&index=0&lang.ts": {
-    "file": "_astro/Sphere.astro_astro_type_script_index_0_lang.Mj07qQHy.js",
+    "file": "_astro/Sphere.astro_astro_type_script_index_0_lang.C7Y5GJno.js",
     "name": "Sphere.astro_astro_type_script_index_0_lang",
     "src": "Source/pages/Sphere.astro?astro&type=script&index=0&lang.ts",
     "isEntry": true,
     "imports": [
-      "_lil-gui.esm.BVaIxMJZ.js",
-      "_three.module.-dzcdP-7.js"
+      "_OrbitControls.BzMIHh-e.js",
+      "_three.module.Dk-PdjTq.js"
     ]
   },
   "Source/pages/Torus.astro?astro&type=script&index=0&lang.ts": {
-    "file": "_astro/Torus.astro_astro_type_script_index_0_lang.DBQsqY30.js",
+    "file": "_astro/Torus.astro_astro_type_script_index_0_lang.DfcsgkSb.js",
     "name": "Torus.astro_astro_type_script_index_0_lang",
     "src": "Source/pages/Torus.astro?astro&type=script&index=0&lang.ts",
     "isEntry": true,
     "imports": [
-      "_three.module.-dzcdP-7.js"
+      "_three.module.Dk-PdjTq.js"
+    ]
+  },
+  "_OrbitControls.BzMIHh-e.js": {
+    "file": "_astro/OrbitControls.BzMIHh-e.js",
+    "name": "OrbitControls",
+    "imports": [
+      "_three.module.Dk-PdjTq.js"
     ]
   },
   "_index.DSBWf7TZ.js": {
     "file": "_astro/index.DSBWf7TZ.js",
     "name": "index"
   },
-  "_lil-gui.esm.BVaIxMJZ.js": {
-    "file": "_astro/lil-gui.esm.BVaIxMJZ.js",
-    "name": "lil-gui.esm"
-  },
   "_preload-helper.Cat91CNq.js": {
     "file": "_astro/preload-helper.Cat91CNq.js",
     "name": "preload-helper"
   },
-  "_three.module.-dzcdP-7.js": {
-    "file": "_astro/three.module.-dzcdP-7.js",
+  "_three.module.Dk-PdjTq.js": {
+    "file": "_astro/three.module.Dk-PdjTq.js",
     "name": "three.module"
   },
   "_web.Lvyfsgth.js": {
