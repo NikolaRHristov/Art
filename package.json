@@ -56,7 +56,11 @@
 		"three": "0.178.0",
 		"three-csg-ts": "3.2.0",
 		"typescript": "5.8.3",
+<<<<<<< HEAD
 		"zod": "3.25.73"
+=======
+		"zod": "3.25.72"
+>>>>>>> 6b8d689f7374e2ba49edf0c6c57c50b54e33cd53
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.4"
