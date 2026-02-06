@@ -42,7 +42,7 @@
 		"autoprefixer": "10.4.24",
 		"cssnano": "7.1.2",
 		"cssnano-preset-advanced": "7.0.10",
-		"dotenv": "17.2.3",
+		"dotenv": "17.2.4",
 		"firebase": "12.8.0",
 		"lil-gui": "0.21.0",
 		"postcss": "8.5.6",
